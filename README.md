@@ -23,13 +23,13 @@ Delete a file:
 `-d /path/to/file`
 
 Copy a file:
--c /path/to/source/file /path/to/destination/file
+`-c /path/to/source/file /path/to/destination/file`
 
 Create a file:
--a /path/to/new/file
+`-a /path/to/new/file`
 
 Rename a file:
--r /path/to/old/file /path/to/new/file
+`-r /path/to/old/file /path/to/new/file`
 
 Get file properties:
--fp /path/to/file
+`-fp /path/to/file`
