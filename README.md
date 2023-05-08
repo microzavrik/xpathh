@@ -20,7 +20,7 @@ Print the contents of a directory:
 file_manager -p /path/to/directory
 
 Delete a file:
--d /path/to/file
+`-d /path/to/file`
 
 Copy a file:
 -c /path/to/source/file /path/to/destination/file
