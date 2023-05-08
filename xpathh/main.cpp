@@ -7,6 +7,7 @@
 
 std::istream& is(std::cin);
 std::ostream& os(std::cout);
+fs::path current_path = fs::current_path();
 
 int main()
 {
@@ -20,6 +21,7 @@ int main()
 	flag -fp = file prop */
 	while (true)
 	{
+		os << "Current path: " << current_path << " ~ ";
 		os << "[$]: ";
 		string cmd;
 		getline(is, cmd);
@@ -30,31 +32,47 @@ int main()
 			command.push_back(temp);
 		}
 
-		cmd_op temp_op = CheckOperation(command[0]);
+		cmd_op temp_op = CheckOperation(command);
 		PerformAction(temp_op, command);
 		command.clear();
 	}
 }
 
-cmd_op CheckOperation(string op)
+cmd_op CheckOperation(vector<string>& cmd)
 {
-	if (op == "-p") {
+	for (auto& c : cmd) {
+		if (c == "~") {
+			c = current_path.string();
+		}
+	}
+
+	if (cmd[0] == "-p") {
 		return Print;
 	}
-	else if (op == "-d") {
+	else if (cmd[0] == "-d") {
 		return Delete;
 	}
-	else if (op == "-c") {
+	else if (cmd[0] == "-c") {
 		return Copy;
 	}
-	else if (op == "-a") {
+	else if (cmd[0] == "-a") {
 		return Create;
 	}
-	else if (op == "-r") {
+	else if (cmd[0] == "-r") {
 		return Refile;
 	}
-	else if (op == "-fp")
+	else if (cmd[0] == "-fp") {
 		return FProperties;
+	}
+	else if (cmd[0] == "-h") {
+		return Help;
+	}
+	else if (cmd[0] == "-cl" || cmd[0] == "-clear") {
+		return CClear;
+	}
+	else if (cmd[0] == "-cd") {
+		return CurrentPath;
+	}
 
 	return None;
 }
@@ -82,6 +100,15 @@ void PerformAction(cmd_op temp_op, vector<string> param)
 			break;
 		case FProperties:
 			PathHandler::FileProperties(param[1]);
+			break;
+		case Help:
+			PathHandler::HelpView();
+			break;
+		case CClear:
+			system("cls");
+			break;
+		case CurrentPath:
+			PathHandler::ChangeCurrentDirectory(param[1], current_path);
 			break;
 		case None:
 			os << "Unkown operation" << endl;

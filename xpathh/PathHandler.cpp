@@ -117,4 +117,29 @@ namespace PathHandler
 			cerr << "Error: " << e.what() << endl;
 		}
 	}
+
+	void HelpView()
+	{
+		os << "flag -p = print dir\nflag -d = delete file\nflag -c = copy file\nflag -a = create file" <<
+			"\nflag -r = rename file\nflag -fp = file prop" << endl;
+	}
+
+	void ChangeCurrentDirectory(const string new_path, fs::path& current_path)
+	{
+		fs::path p = new_path;
+
+		try
+		{
+			if (fs::is_directory(p)) {
+				current_path = p;
+			}
+			else {
+				throw std::runtime_error("Error change directory");
+			}
+		}
+		catch (const std::runtime_error& e)
+		{
+			cerr << e.what() << endl;
+		}
+	}
 }

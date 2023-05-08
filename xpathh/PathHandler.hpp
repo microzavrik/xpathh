@@ -17,4 +17,6 @@ namespace PathHandler
     void CreateFile(const fs::path& folder_path, const fs::path name_file);
     void Rename(const fs::path& old_path, const fs::path& new_path);
     void FileProperties(const fs::path& path);
+    void ChangeCurrentDirectory(const string new_path, fs::path& current_path);
+    void HelpView();
 }

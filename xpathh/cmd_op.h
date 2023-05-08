@@ -8,5 +8,8 @@ enum cmd_op
 	Create,
 	Refile,
 	FProperties,
+	Help,
+	CClear,
+	CurrentPath,
 	None
 };
