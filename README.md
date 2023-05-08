@@ -1,4 +1,4 @@
-# xpathh
+# Console file manager xpathh
 
 This is a command-line file manager that allows you to perform various file operations using different flags.
 Usage
