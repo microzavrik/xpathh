@@ -17,7 +17,13 @@ Replace [file/directory name] with the name of the file or directory you want to
 Examples
 
 Print the contents of a directory:
-file_manager -p /path/to/directory
+-p /path/to/directory
+
+List of flags:
+`-h`
+
+Insert current path:
+`-flag ~`
 
 Delete a file:
 `-d /path/to/file`
@@ -33,3 +39,4 @@ Rename a file:
 
 Get file properties:
 `-fp /path/to/file`
+
