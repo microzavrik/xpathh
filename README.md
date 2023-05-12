@@ -1,3 +1,5 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/sxaxq/xpathh/badge)](https://www.codefactor.io/repository/github/sxaxq/xpathh)
+
 # Console file manager xpathh
 
 This is a command-line file manager that allows you to perform various file operations using different flags.
